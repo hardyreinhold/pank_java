@@ -17,7 +17,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(Main.class.getResource("login.fxml"));
         tseen = new Scene(root);
-        pank = new Pank(new ArrayList<>());
+        pank = new Pank();
         stage.setTitle("Pank - Sisselogimine");
         stage.setMinWidth(250);
         stage.setMinHeight(250);
@@ -32,7 +32,6 @@ public class Main extends Application {
     //meetod tseeni muutmiseks
     public static void setTseen(Parent root, double width, double height) {
         tseen.setRoot(root);
-        // Fetch the window (must already be shown or non-null)
         Stage stage = (Stage) tseen.getWindow();
         stage.setWidth(width);
         stage.setHeight(height);
