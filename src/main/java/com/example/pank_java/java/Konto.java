@@ -8,12 +8,11 @@ public class Konto {
     private double summaKontol;
     private Pank pank;
 
-    public Konto(int kontoNumber, String kontoOmanik, String parool, double summaKontol, Pank pank) {
+    public Konto(int kontoNumber, String kontoOmanik, String parool, double summaKontol) {
         this.kontoNumber = kontoNumber;
         this.kontoOmanik = kontoOmanik;
         this.parool = parool;
         this.summaKontol = summaKontol;
-        this.pank = pank;
     }
 
     public void võttaVälja(double väljaVõetavSumma) {
@@ -39,8 +38,6 @@ public class Konto {
             System.out.println("Kontol pole piisavalt raha");
             return;
         };
-
-        pank.lisaRahaKontole(summa, kontoNumber);
 
         summaKontol -= summa;
         System.out.println("Raha edukalt kantud.");

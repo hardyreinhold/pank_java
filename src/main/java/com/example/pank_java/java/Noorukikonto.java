@@ -4,8 +4,8 @@ public class Noorukikonto extends Konto{
 
     private int vanus;
 
-    public Noorukikonto(int kontoNumber,int vanus, String kontoOmanik, String parool, double summaKontol, Pank pank) {
-        super(kontoNumber, kontoOmanik, parool, summaKontol, pank);
+    public Noorukikonto(int kontoNumber,int vanus, String kontoOmanik, String parool, double summaKontol) {
+        super(kontoNumber, kontoOmanik, parool, summaKontol);
         this.vanus = vanus;
     }
 
@@ -28,7 +28,6 @@ public class Noorukikonto extends Konto{
             return;
         }
 
-        super.getPank().lisaRahaKontole(summa, kontoNumber);
         super.lahutaKontolt(summa);
 
         System.out.println();
