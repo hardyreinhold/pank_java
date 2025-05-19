@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pank_java.controllers.Registreerimine"
+            minWidth="400" minHeight="500"
+            prefWidth="400" prefHeight="500">
+    <VBox fx:id="vBox" spacing="15.0" AnchorPane.topAnchor="25.0" AnchorPane.bottomAnchor="25.0"
+          AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+        <Label text="Registeeri kasutaja" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+        <Text text="Kasutaja nimi: "/>
+        <TextField fx:id="kasutajaNimi" promptText="Kasutaja nimi"/>
+        <Text  text="Parool: "/>
+        <PasswordField fx:id="pass1" promptText="Parool"/>
+        <Text  text="Korda parooli: "/>
+        <PasswordField fx:id="pass2" promptText="Korda parooli"/>
+        <HBox spacing="50.0" >
+            <Button text="Sign Up" onAction="#registreeri" prefWidth="100"/>
+            <Button text="Tagasi" onAction="#tagasi" prefWidth="100"/>
+        </HBox>
+    </VBox>
+</AnchorPane>
+
