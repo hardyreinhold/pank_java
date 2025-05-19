@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.pank_java.controllers.UusKonto"
+            prefWidth="400" prefHeight="300">
+
+    <children>
+        <VBox spacing="15" alignment="CENTER"
+              AnchorPane.topAnchor="20"
+              AnchorPane.leftAnchor="20"
+              AnchorPane.rightAnchor="20"
+              AnchorPane.bottomAnchor="20">
+
+            <Label text="Loo uus konto"
+                   style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+
+            <!-- vanuse sisestus -->
+            <TextField fx:id="vanusField"
+                       promptText="Sisesta oma vanus"/>
+
+            <!-- algsumma sisestus -->
+            <TextField fx:id="algSumma"
+                       promptText="Esialgne summa (EUR)"/>
+
+            <Button text="Loo konto"
+                    onAction="#onCreate"
+                    prefWidth="120"/>
+
+            <Button text="Tagasi"
+                    onAction="#onBack"
+                    prefWidth="120"/>
+
+        </VBox>
+    </children>
+</AnchorPane>

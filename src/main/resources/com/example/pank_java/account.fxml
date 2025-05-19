@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.pank_java.controllers.AccountController"
+            prefWidth="600" prefHeight="400">
+
+    <children>
+        <VBox spacing="15"
+              AnchorPane.topAnchor="20"
+              AnchorPane.leftAnchor="20"
+              AnchorPane.rightAnchor="20">
+
+            <Label text="Arvelduskontod"
+                   style="-fx-font-size:18px; -fx-font-weight:bold;" />
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Kokku vabad vahendid:"/>
+                <Label fx:id="totalLabel" style="-fx-font-size:24px;"/>
+            </HBox>
+
+            <!-- if you prefer FXML wiring, keep onAction="#onNewPayment" -->
+            <Button fx:id="newPayment"
+                    text="Uus makse"
+                    onAction="#onNewPayment"
+                    style="-fx-font-size:14px;"
+                    AnchorPane.topAnchor="20"
+                    AnchorPane.rightAnchor="20"/>
+
+            <HBox spacing="5" style="-fx-border-color:lightgray; -fx-border-width:0 0 1 0;"/>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <VBox spacing="5">
+                    <Hyperlink fx:id="accName" text="Omaniku nimi"/>
+                    <Label fx:id="ibanLabel" text="EEXXXXXXXX"/>
+                </VBox>
+
+                <Label text="Kontojääk:"/>
+                <Label fx:id="balance"/>
+
+                <Label text="Vabad vahendid:"/>
+                <Label fx:id="available"/>
+
+                <Label fx:id="currency"/>
+
+                <HBox spacing="5" alignment="CENTER_RIGHT">
+                    <Button fx:id="copyButton"   text="Kopeeri IBAN"/>
+                    <Button fx:id="detailsButton" text="Näita detaile"/>
+                </HBox>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

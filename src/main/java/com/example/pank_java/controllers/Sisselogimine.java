@@ -1,6 +1,8 @@
 package com.example.pank_java.controllers;
 
 import com.example.pank_java.Main;
+import com.example.pank_java.java.Kasutaja;
+import com.example.pank_java.java.Pank;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,26 +10,57 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.sql.SQLOutput;
-import java.util.Objects;
 
 public class Sisselogimine {
-    @FXML private TextField usernameField;
-    @FXML private PasswordField passwordField;
+    @FXML private TextField    kasutajaNimi;
+    @FXML private PasswordField parool;
 
-    @FXML private void login() {
-        System.out.println("Sisselogitud");
+    @FXML
+    private void login() {
+        try {
+            Pank pank = Main.getPank();
+            Kasutaja user = pank.logiSisse(
+                    kasutajaNimi.getText().trim(),
+                    parool.getText().trim()
+            );
+            if (user == null) {
+                System.out.println("Vale kasutajanimi või parool");
+                return;
+            }
+
+            // valime, kumba FXML-i laadime
+            String fxmlName = user.getKontoList().isEmpty()
+                    ? "newaccount.fxml"
+                    : "accountSelect.fxml";
+
+            // tee ressurssitee
+            String resPath = "/com/example/pank_java/" + fxmlName;
+
+            // laeme FXML-i
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource(resPath)
+            );
+            Parent root = loader.load();  // <--- ei vea nulliga üles
+
+            // lõpuks vaheta stseen (same size for both)
+            Main.setTseen(root, 400, 300);
+
+        } catch (IOException e) {
+            // kas FXML-i ei leitud või mõni muu I/O viga
+            e.printStackTrace();
+            System.err.println("Ei leia või ei saa laadida: " + e.getMessage());
+        }
     }
 
-    @FXML private void registreeri() {
+    @FXML
+    private void registreeri() {
         try {
-            Parent registreeriRoot = FXMLLoader.load(
-                    Objects.requireNonNull(Main.class.getResource("registreeri.fxml"))
+            Parent root = FXMLLoader.load(
+                    getClass().getResource("/com/example/pank_java/registreeri.fxml")
             );
-            Main.setTseen(registreeriRoot, 400, 400);
+            Main.setTseen(root, 400, 500);
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Ei leidnud registreeri.fxml faili.");
         }
     }
 }

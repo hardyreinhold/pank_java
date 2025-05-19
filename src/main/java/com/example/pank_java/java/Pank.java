@@ -3,76 +3,64 @@ package com.example.pank_java.java;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Pank {
-    //List kus on kõik kontod
-    private List<Kasutaja> kasutajaList;
+    private final List<Kasutaja> kasutajaList = new ArrayList<>();
+    private Kasutaja praeguneKasutaja;
 
-    //Konstruktor
-    public Pank(List<Konto> kontodeList) {
-        this.kasutajaList = new ArrayList<>();
-    }
+    public Pank() { }
 
     public Kasutaja lisaKasutaja(String nimi, String parool1, String parool2) {
-        if(!nimi.isEmpty()) {
-            if(parool1.equals(parool2)) {
-                Kasutaja kasutaja = new Kasutaja(nimi, parool1);
-                kasutajaList.add(kasutaja);
-                return kasutaja;
-            }
-        }
-        return null;
+        if (nimi == null || nimi.isBlank()) return null;
+        if (!parool1.equals(parool2))             return null;
+        Kasutaja u = new Kasutaja(nimi, parool1);
+        kasutajaList.add(u);
+        return u;
     }
-    /**
-     * Meetod logib kasutajasse sisse.
-     * @param nimi konto nimi
-     * @param parool konto parool
-     * @return tagastab konto, kuhu sisse logiti
-     */
+
     public Kasutaja logiSisse(String nimi, String parool) {
-
-        for(Kasutaja kasutaja: kasutajaList) {
-            if(nimi.equalsIgnoreCase(kasutaja.getKasutajaNimi())) {
-                if (parool.equals(kasutaja.getParool())) {
-                    System.out.println("Edukalt sisse logitud");
-                    return kasutaja;
-                } else {
-                    System.out.println("Vale parool");
-                    return null;
-                }
+        for (Kasutaja k : kasutajaList) {
+            if (k.getKasutajaNimi().equals(nimi)
+                    && k.getParool().equals(parool)) {
+                praeguneKasutaja = k;
+                return k;
             }
         }
-
-        System.out.println("Sellist kontot ei leitud");
         return null;
     }
 
-
-    /**
-     * Meetod kuvab ekraanile kõik hetkel tehtud kontod.
-     */
-
-    public void kuvaKontod(){
-        //SEE IF STATEMENT EI TÖÖTA????
-        if (kasutajaList.isEmpty()) {
-            System.out.println("Hetkel pole veel ühtegi kontot loodud");
-        }
-        else {
-            System.out.println("Hetkel loodud kontod on:");
-            for(Kasutaja kasutaja: kasutajaList){
-                System.out.println(kasutaja);
-            }
-        }
+    public Kasutaja getPraeguneKasutaja() {
+        return praeguneKasutaja;
     }
 
-    public List<Kasutaja> getKasutajaList(){
+    /**
+     * Loo uus konto seesolevale kasutajale.
+     * @param vanus     konto omaniku vanus (konto tüüp)
+     * @param algSumma  esialgne saldo kontole
+     */
+    public Konto looKonto(int vanus, double algSumma) {
+        if (praeguneKasutaja == null) {
+            throw new IllegalStateException("Pole ühtegi sisse logitud kasutajat");
+        }
+
+        // Kasutaja.lisaKonto sisestab õige Konto alamklassi ja tagastab terve nimekirja
+        List<Konto> kontod = praeguneKasutaja.lisaKonto(
+                praeguneKasutaja.getKasutajaNimi(),
+                praeguneKasutaja.getParool(),
+                vanus
+        );
+        Konto uus = kontod.get(kontod.size() - 1);
+        if (algSumma > 0) {
+            uus.sisestaKontole(algSumma);
+        }
+        return uus;
+    }
+
+    public List<Kasutaja> getKasutajaList() {
         return kasutajaList;
     }
 
-    public String unustasinParooli(){
-        return "Konto.getParool();";
+    public String unustasinParooli() {
+        return "Palun võta ühendust toega.";
     }
-
-
 }

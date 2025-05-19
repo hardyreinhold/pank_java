@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.pank_java.controllers.HelloController"
+            prefWidth="600" prefHeight="400">
+
+    <children>
+        <VBox spacing="10"
+              AnchorPane.topAnchor="10"
+              AnchorPane.leftAnchor="10"
+              AnchorPane.rightAnchor="10"
+              AnchorPane.bottomAnchor="10">
+
+            <!-- Päis -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Kokku vabad vahendid:"/>
+                <Label fx:id="kokkuVabadVahendidLabel"
+                       style="-fx-font-size:24px; -fx-font-weight:bold"/>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button text="Uus makse" onAction="#uusMakse"/>
+            </HBox>
+
+            <!-- Kontode tabel -->
+            <TableView fx:id="kontoTabel" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="omanikCol"        text="Kontoomanik"    prefWidth="150"/>
+                    <TableColumn fx:id="kontonrCol"       text="Kontonr"        prefWidth="100"/>
+                    <TableColumn fx:id="saldoCol"         text="Kontojääk"      prefWidth="80"/>
+                    <TableColumn fx:id="broneeritudCol"   text="Broneeritud"    prefWidth="80"/>
+                    <TableColumn fx:id="vabadVahendidCol" text="Vabad vahendid" prefWidth="100"/>
+                    <TableColumn fx:id="valuutaCol"       text="Valuuta"        prefWidth="60"/>
+                    <TableColumn fx:id="tegevusCol"       text=""              prefWidth="30"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </children>
+
+</AnchorPane>
