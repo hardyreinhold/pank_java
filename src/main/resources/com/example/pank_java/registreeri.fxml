@@ -17,6 +17,8 @@
         <Label text="Registeeri kasutaja" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
         <Text text="Kasutaja nimi: "/>
         <TextField fx:id="kasutajaNimi" promptText="Kasutaja nimi"/>
+        <Text text="Vanus: "/>
+        <TextField fx:id="vanus" promptText="Vanus"/>
         <Text  text="Parool: "/>
         <PasswordField fx:id="pass1" promptText="Parool"/>
         <Text  text="Korda parooli: "/>

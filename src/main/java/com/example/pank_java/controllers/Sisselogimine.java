@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
+import static com.example.pank_java.Main.getPank;
+
 public class Sisselogimine {
     @FXML private TextField    kasutajaNimi;
     @FXML private PasswordField parool;
@@ -18,7 +20,7 @@ public class Sisselogimine {
     @FXML
     private void login() {
         try {
-            Pank pank = Main.getPank();
+            Pank pank = getPank();
             Kasutaja user = pank.logiSisse(
                     kasutajaNimi.getText().trim(),
                     parool.getText().trim()
@@ -59,6 +61,7 @@ public class Sisselogimine {
                     getClass().getResource("/com/example/pank_java/registreeri.fxml")
             );
             Main.setTseen(root, 400, 500);
+            System.out.println(getPank().getKasutajaList());
         } catch (IOException e) {
             e.printStackTrace();
         }

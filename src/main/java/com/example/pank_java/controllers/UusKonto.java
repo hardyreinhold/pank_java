@@ -9,18 +9,16 @@ import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 
 public class UusKonto {
-    @FXML private TextField vanusField;
     @FXML private TextField algSumma;
 
     @FXML
     private void onCreate() throws Exception {
         Pank pank = Main.getPank();
 
-        int vanus   = Integer.parseInt(vanusField.getText().trim());
         double summa = Double.parseDouble(algSumma.getText().trim());
 
         // 1) Loo uus konto
-        Konto uus = pank.looKonto(vanus, summa);
+        Konto uus = pank.looKonto(summa);
 
         // 2) Lae account.fxml (sinu dashboard)
         FXMLLoader loader = new FXMLLoader(

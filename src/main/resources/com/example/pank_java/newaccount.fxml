@@ -2,6 +2,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.text.Text?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.pank_java.controllers.UusKonto"
@@ -17,11 +18,8 @@
             <Label text="Loo uus konto"
                    style="-fx-font-size:16px; -fx-font-weight:bold;"/>
 
-            <!-- vanuse sisestus -->
-            <TextField fx:id="vanusField"
-                       promptText="Sisesta oma vanus"/>
-
             <!-- algsumma sisestus -->
+            <Text text="Sisesta konto algsumma: " />
             <TextField fx:id="algSumma"
                        promptText="Esialgne summa (EUR)"/>
 
