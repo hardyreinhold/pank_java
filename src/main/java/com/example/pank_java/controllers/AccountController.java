@@ -38,7 +38,7 @@ public class AccountController {
         currency   .setText("EUR");
 
         accName   .setText(konto.getKontoOmanik());
-        ibanLabel .setText("EE" + konto.getKontoNumber());
+        ibanLabel .setText(konto.getKontoNumber());
 
         copyButton.setOnAction(e ->
                 System.out.println("Kopeerisin IBANi: " + ibanLabel.getText())

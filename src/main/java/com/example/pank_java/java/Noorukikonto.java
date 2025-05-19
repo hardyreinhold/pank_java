@@ -4,7 +4,7 @@ public class Noorukikonto extends Konto{
 
     private int vanus;
 
-    public Noorukikonto(int kontoNumber,int vanus, String kontoOmanik, String parool, double summaKontol) {
+    public Noorukikonto(String kontoNumber,int vanus, String kontoOmanik, String parool, double summaKontol) {
         super(kontoNumber, kontoOmanik, parool, summaKontol);
         this.vanus = vanus;
     }

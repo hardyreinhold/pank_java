@@ -17,6 +17,7 @@ import java.util.Objects;
 import static com.example.pank_java.Main.getPank;
 public class Registreerimine {
     @FXML private TextField kasutajaNimi;
+    @FXML private TextField vanus;
     @FXML private PasswordField pass1;
     @FXML private PasswordField pass2;
     @FXML private VBox vBox;
@@ -37,7 +38,7 @@ public class Registreerimine {
 
     @FXML private void registreeri() {
 
-        Kasutaja registreeritud = getPank().lisaKasutaja(kasutajaNimi.getText(), pass1.getText(), pass2.getText());
+        Kasutaja registreeritud = getPank().lisaKasutaja(kasutajaNimi.getText(), pass1.getText(), pass2.getText(), Integer.parseInt(vanus.getText()));
 
         if (registreeritud != null) {
 

@@ -2,13 +2,13 @@ package com.example.pank_java.java;
 
 public class Konto {
 
-    private int kontoNumber;
+    private String kontoNumber;
     private String kontoOmanik;
     private String parool;
     private double summaKontol;
     private Pank pank;
 
-    public Konto(int kontoNumber, String kontoOmanik, String parool, double summaKontol) {
+    public Konto(String kontoNumber, String kontoOmanik, String parool, double summaKontol) {
         this.kontoNumber = kontoNumber;
         this.kontoOmanik = kontoOmanik;
         this.parool = parool;
@@ -61,7 +61,7 @@ public class Konto {
 
     //GET MEETODID
 
-    public int getKontoNumber() {
+    public String getKontoNumber() {
         return kontoNumber;
     }
 
