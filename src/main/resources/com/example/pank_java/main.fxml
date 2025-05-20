@@ -6,7 +6,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.pank_java.controllers.HelloController"
+            fx:controller="com.example.pank_java.controllers.AccountController"
             prefWidth="600" prefHeight="400">
 
     <children>

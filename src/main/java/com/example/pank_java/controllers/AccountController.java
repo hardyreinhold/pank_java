@@ -1,5 +1,6 @@
 package com.example.pank_java.controllers;
 
+import com.example.pank_java.Main;
 import com.example.pank_java.java.Konto;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -53,5 +54,11 @@ public class AccountController {
     private void onNewPayment() {
         System.out.println("Avan makse-dialoogi…");
         // TODO: Avage eraldi makse‐dialog
+    }
+
+    // funktsioon salvestab hetkel tehtud toimingud faili
+    @FXML
+    private void salvestaToim() {
+        Main.kirjutaKasutajadFaili("kasu.txt");
     }
 }

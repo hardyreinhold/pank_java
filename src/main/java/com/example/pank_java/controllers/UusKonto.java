@@ -19,6 +19,7 @@ public class UusKonto {
 
         // 1) Loo uus konto
         Konto uus = pank.looKonto(summa);
+        System.out.println(uus);
 
         // 2) Lae account.fxml (sinu dashboard)
         FXMLLoader loader = new FXMLLoader(

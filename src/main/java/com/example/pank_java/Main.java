@@ -1,6 +1,7 @@
 package com.example.pank_java;
 
 import com.example.pank_java.java.Kasutaja;
+import com.example.pank_java.java.Konto;
 import com.example.pank_java.java.Pank;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +21,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(Main.class.getResource("login.fxml"));
         tseen = new Scene(root);
         pank = new Pank();
-        loeKasutajadFailist("kasutajad.txt");
+        loeKasutajadFailist("kasu.txt");
         System.out.println(pank.getKasutajaList());
         stage.setTitle("Pank - Sisselogimine");
         stage.setMinWidth(250);
@@ -32,6 +33,13 @@ public class Main extends Application {
     public static Pank getPank() {
         return pank;
     }
+
+    /**
+     * funktsioon loeb kasutajad failist kujul
+     * Hardy;parool;20@EE123333;2000@EE1455;3000@EE12555;4000
+     * kus enne esimest  @ on kasutaja kujul kasutajanimi;parool;vanus ja pärast on kontod kujul: kontoNR;summa kontol
+     * @param failinimi fail, kust funktsioon loeb
+     */
 
     public static void loeKasutajadFailist(String failinimi) {
 
@@ -56,6 +64,29 @@ public class Main extends Application {
         }
 
 
+    }
+
+    /**
+     * funktsioon kirjutab kasutajad faili kujul
+     * Hardy;parool;20@EE123333;2000@EE1455;3000@EE12555;4000
+     * kus enne esimest  @ on kasutaja kujul kasutajanimi;parool;vanus ja pärast on kontod kujul: kontoNR;summa kontol
+     * @param failinimi fail, kuhu funktsioon kirjutab
+     */
+
+    public static void kirjutaKasutajadFaili(String failinimi) {
+        try(BufferedWriter bw = new BufferedWriter(new OutputStreamWriter (new FileOutputStream(failinimi)))) {
+            for (Kasutaja kasutaja : pank.getKasutajaList()) {
+                bw.write(kasutaja.getKasutajaNimi()+ ";" + kasutaja.getParool() + ";" + kasutaja.getVanus() + "@");
+                for (Konto konto : kasutaja.getKontoList()) {
+                    bw.write(konto.getKontoNumber() + ";" + konto.getSummaKontol() + "@");
+                }
+                bw.newLine();
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     //meetod tseeni muutmiseks
