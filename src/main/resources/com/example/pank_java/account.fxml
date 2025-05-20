@@ -54,6 +54,7 @@
                     <Button fx:id="detailsButton" text="Näita detaile"/>
                 </HBox>
             </HBox>
+            <Button text="Salvesta toimingud faili" onAction="#salvestaToim"/>
         </VBox>
     </children>
 </AnchorPane>
