@@ -83,10 +83,6 @@ public class Konto {
 
     @Override
     public String toString() {
-        return "Konto {" +
-                "kontoNumber=" + kontoNumber +
-                ", kontoOmanik='" + kontoOmanik + '\'' +
-                ", summaKontol=" + summaKontol +
-                '}';
+        return "kontoNumber=" + kontoNumber + ", summaKontol=" + summaKontol;
     }
 }
