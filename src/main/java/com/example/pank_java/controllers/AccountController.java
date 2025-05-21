@@ -3,10 +3,13 @@ package com.example.pank_java.controllers;
 import com.example.pank_java.Main;
 import com.example.pank_java.java.Konto;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -47,18 +50,29 @@ public class AccountController {
         detailsButton.setOnAction(e ->
                 System.out.println("Näita detaile: " + konto)
         );
-        newPayment.setOnAction(e -> onNewPayment());
+        newPayment.setOnAction(e -> {
+            try {
+                onNewPayment();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
     }
 
     @FXML
-    private void onNewPayment() {
+    private void onNewPayment() throws IOException {
         System.out.println("Avan makse-dialoogi…");
-        // TODO: Avage eraldi makse‐dialog
+        FXMLLoader loader = new FXMLLoader(
+                Main.class.getResource("makse.fxml")
+        );
+        Parent root = loader.load();
+
+        Main.setTseen(root, 300, 500);
     }
 
     // funktsioon salvestab hetkel tehtud toimingud faili
     @FXML
     private void salvestaToim() {
-        Main.kirjutaKasutajadFaili("kasu.txt");
+        Main.kirjutaKasutajadFaili("kasutajad.txt");
     }
 }

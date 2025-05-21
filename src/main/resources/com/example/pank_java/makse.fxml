@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pank_java.controllers.Makse"
+            prefWidth="400" prefHeight="250">
+    <VBox spacing="15.0" alignment="CENTER" AnchorPane.topAnchor="25.0" AnchorPane.bottomAnchor="25.0"
+          AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+
+        <Label text="Tee makse" styleClass="label-large"/>
+
+        <Text text="Konto number: "/>
+        <TextField fx:id="ibanField" promptText="IBAN" styleClass="text-field"/>
+        <Text text="Makstav summa: "/>
+        <TextField fx:id="summaField" promptText="Summa (€)" styleClass="text-field"/>
+
+        <Button text="Saada makse" onAction="#saadaMakse" prefWidth="150" styleClass="btn-primary"/>
+        <Button text="Tagasi" onAction="#tagasi" prefWidth="150" styleClass="btn-primary"/>
+
+    </VBox>
+</AnchorPane>
+

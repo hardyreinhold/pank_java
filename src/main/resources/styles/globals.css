@@ -47,3 +47,8 @@
   -fx-font-size: 12px;
   -fx-text-fill: #007bff;
 }
+
+
+.text-field {
+  -fx-font-size: 12px;
+}

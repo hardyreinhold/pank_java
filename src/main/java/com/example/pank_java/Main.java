@@ -21,8 +21,9 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(Main.class.getResource("login.fxml"));
         tseen = new Scene(root);
         pank = new Pank();
-        loeKasutajadFailist("kasu.txt");
+        loeKasutajadFailist("kasutajad.txt");
         System.out.println(pank.getKasutajaList());
+        tseen.getStylesheets().add(getClass().getResource("/styles/globals.css").toExternalForm());
         stage.setTitle("Pank - Sisselogimine");
         stage.setMinWidth(250);
         stage.setMinHeight(250);
