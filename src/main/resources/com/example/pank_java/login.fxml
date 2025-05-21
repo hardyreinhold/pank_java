@@ -16,8 +16,8 @@
         <TextField fx:id="kasutajaNimi" promptText="Username"/>
         <PasswordField fx:id="parool" promptText="Password"/>
         <HBox spacing="20.0" alignment="CENTER">
-            <Button text="Logi sisse" onAction="#login" prefWidth="100"/>
-            <Button text="Registreeri" onAction="#registreeri" prefWidth="100"/>
+            <Button styleClass="btn-primary" text="Logi sisse" onAction="#login" prefWidth="100"/>
+            <Button styleClass="btn-primary" text="Registreeri" onAction="#registreeri" prefWidth="100"/>
         </HBox>
     </VBox>
 </AnchorPane>
