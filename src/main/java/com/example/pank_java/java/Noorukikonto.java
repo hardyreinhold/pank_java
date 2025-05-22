@@ -9,6 +9,13 @@ public class Noorukikonto extends Konto{
         this.vanus = vanus;
     }
 
+    public void lahutaKontolt(double summa) {
+        if(summa > 50) {
+            throw new RahaPolePiisavalt("Noorukikonto ei saa üle 50 euro kanda.");
+        };
+        super.lahutaKontolt(summa);
+    }
+
 
     @Override
     public String toString() {
