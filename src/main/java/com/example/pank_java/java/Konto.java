@@ -15,35 +15,8 @@ public class Konto {
         this.summaKontol = summaKontol;
     }
 
-    public void võttaVälja(double väljaVõetavSumma) {
-        if (väljaVõetavSumma > summaKontol) {
-            System.out.println("Kontol pole piisavalt raha! Praegune saldo: " + summaKontol + "\n");
-        }
-        summaKontol -= väljaVõetavSumma;
-        System.out.println("Kontole on alles jäänud: " + summaKontol + "\n");
-    }
-
     public void sisestaKontole(double kontoleSisestada) {
         summaKontol += kontoleSisestada;
-    }
-
-    /**
-     * meetod kannab raha sellelt kontolt teisele
-     * @param summa kantav summa
-     * @param kontoNumber kontoNr, kuhu summa kantakse
-     */
-
-    public void kannaKontole(double summa, int kontoNumber) {
-        if(summa > summaKontol) {
-            System.out.println("Kontol pole piisavalt raha");
-            return;
-        };
-
-        summaKontol -= summa;
-        System.out.println("Raha edukalt kantud.");
-        System.out.println("Teil on nüüd kontol: " + summaKontol);
-        System.out.println();
-        System.out.println();
     }
 
     /**
@@ -52,6 +25,9 @@ public class Konto {
      */
 
     public void lahutaKontolt(double summa) {
+        if(summa > summaKontol) {
+            throw new RahaPolePiisavalt("Kontol pole piisavalt raha!");
+        };
         summaKontol -= summa;
     }
 

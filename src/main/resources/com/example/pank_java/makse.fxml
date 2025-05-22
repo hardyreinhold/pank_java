@@ -10,7 +10,7 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pank_java.controllers.Makse"
             prefWidth="400" prefHeight="250">
     <VBox spacing="15.0" alignment="CENTER" AnchorPane.topAnchor="25.0" AnchorPane.bottomAnchor="25.0"
-          AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+          AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" fx:id="vBox">
 
         <Label text="Tee makse" styleClass="label-large"/>
 

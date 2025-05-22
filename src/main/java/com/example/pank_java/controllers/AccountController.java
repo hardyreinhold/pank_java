@@ -67,6 +67,9 @@ public class AccountController {
         );
         Parent root = loader.load();
 
+        Makse makse = loader.getController();
+        makse.setKonto(konto);
+
         Main.setTseen(root, 300, 500);
     }
 
