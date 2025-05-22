@@ -32,10 +32,10 @@ public class Kasutaja {
             return kontodeList;
         }
         // Siis on mul on vaja randomly genereerida konto number
-        int miinimum = 10000000;
-        int max = 99999999;
+        long miinimum = 1000000000;
+        long max = 9999999999L;
         Random random = new Random();
-        String kontoNumber = "EE" +  String.valueOf(random.nextInt((max - miinimum) + 1) + miinimum);
+        String kontoNumber = "EE" + 21 + 6969 +  String.valueOf(random.nextLong((max - miinimum) + 1) + miinimum);
 
         //Kui vanus väiksem, kui 18 loome noorukikonto, kui vanus alla 65 loome tava konto, muidu loome pensionäri konto
         if (vanus < 18) {

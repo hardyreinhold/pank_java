@@ -59,7 +59,10 @@ public class Pank {
         Konto uus = kontod.get(kontod.size() - 1);
         if (algSumma > 0) {
             uus.sisestaKontole(algSumma);
+        } else {
+            uus.sisestaKontole(0);
         }
+
         return uus;
     }
 
