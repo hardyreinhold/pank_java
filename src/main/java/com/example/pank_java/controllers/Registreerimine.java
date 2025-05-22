@@ -21,6 +21,7 @@ public class Registreerimine {
     @FXML private PasswordField pass1;
     @FXML private PasswordField pass2;
     @FXML private VBox vBox;
+    private boolean kasOnTekst;
 
     @FXML private void tagasi() {
         try {
@@ -38,9 +39,12 @@ public class Registreerimine {
 
     @FXML private void registreeri() {
 
+        if(kasutajaNimi.getText().isEmpty() || vanus.getText().isEmpty() || pass1.getText().isEmpty() || pass2.getText().isEmpty()) return;
+
         Kasutaja registreeritud = getPank().lisaKasutaja(kasutajaNimi.getText(), pass1.getText(), pass2.getText(), Integer.parseInt(vanus.getText()));
 
         if (registreeritud != null) {
+            if(kasOnTekst) vBox.getChildren().removeLast();
 
             Text confirmation = new Text("Registreeritud!");
 
@@ -49,13 +53,16 @@ public class Registreerimine {
 
 
             vBox.getChildren().add(confirmation);
+            kasOnTekst = true;
         } else {
+            if(kasOnTekst) vBox.getChildren().removeLast();
             Text confirmation = new Text("Registreerimine ebaõnnestus!");
 
             confirmation.setFill(Color.RED);
             confirmation.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
             vBox.getChildren().add(confirmation);
+            kasOnTekst = true;
         }
     }
 }

@@ -21,6 +21,8 @@ public class Makse {
     @FXML private TextField ibanField;
     @FXML private TextField summaField;
     @FXML private VBox vBox;
+    private boolean kasOnTekst;
+    private Text eelmine;
 
     private Konto konto;
 
@@ -43,6 +45,7 @@ public class Makse {
 
         if(!(saaja == null)){
             try {
+                if(kasOnTekst) vBox.getChildren().remove(eelmine);
                 konto.lahutaKontolt(Double.parseDouble(summa));
                 saaja.sisestaKontole(Double.parseDouble(summa));
                 System.out.println("Saatsin makse: IBAN=" + iban + ", Summa=" + summa);
@@ -52,23 +55,32 @@ public class Makse {
                 confirmation.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
                 vBox.getChildren().add(confirmation);
+                eelmine = confirmation;
+                kasOnTekst = true;
             } catch (RahaPolePiisavalt e) {
+                if(kasOnTekst) vBox.getChildren().remove(eelmine);
+
                 Text confirmation = new Text(e.getMessage());
 
                 confirmation.setFill(Color.RED);
                 confirmation.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
                 vBox.getChildren().add(confirmation);
+                eelmine = confirmation;
+                kasOnTekst = true;
             }
 
         }
-        else{
+        else {
+            if(kasOnTekst) vBox.getChildren().remove(eelmine);
             Text confirmation = new Text("Antud IBAN-i ei leitud.");
 
             confirmation.setFill(Color.RED);
             confirmation.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
             vBox.getChildren().add(confirmation);
+            eelmine = confirmation;
+            kasOnTekst = true;
         }
 
 
