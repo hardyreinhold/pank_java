@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import static com.example.pank_java.Main.getPank;
+
 public class AccountController {
     @FXML private Label       totalLabel;      // Kokku vabad vahendid
     @FXML private Hyperlink   accName;         // Konto omaniku nimi/link
@@ -57,6 +59,21 @@ public class AccountController {
                 throw new RuntimeException(ex);
             }
         });
+
+
+
+    }
+
+    @FXML
+    private void logiVälja(){
+        try {
+            Parent root = FXMLLoader.load(
+                    getClass().getResource("/com/example/pank_java/login.fxml")
+            );
+            Main.setTseen(root, 400, 500);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

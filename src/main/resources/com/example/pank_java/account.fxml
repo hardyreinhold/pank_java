@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -12,6 +13,14 @@
             prefWidth="600" prefHeight="400">
 
     <children>
+
+        <Button styleClass="btn-secondary"
+                fx:id="valjaLogiButton"
+                text="Logi välja"
+                onAction="#logiVälja"
+                AnchorPane.topAnchor="20"
+                AnchorPane.rightAnchor="20"/>
+
         <VBox spacing="15"
               AnchorPane.topAnchor="20"
               AnchorPane.leftAnchor="20"
@@ -22,16 +31,14 @@
 
             <HBox spacing="10" alignment="CENTER_LEFT">
                 <Label text="Kokku vabad vahendid:"/>
-                <Label fx:id="totalLabel" style="-fx-font-size:24px;"/>
+                <Label fx:id="totalLabel" style="-fx-font-size:24px;" />
             </HBox>
 
-            <!-- if you prefer FXML wiring, keep onAction="#onNewPayment" -->
             <Button fx:id="newPayment"
                     text="Uus makse"
+                    styleClass="btn-primary"
                     onAction="#onNewPayment"
-                    style="-fx-font-size:14px;"
-                    AnchorPane.topAnchor="20"
-                    AnchorPane.rightAnchor="20"/>
+                    style="-fx-font-size:14px;" />
 
             <HBox spacing="5" style="-fx-border-color:lightgray; -fx-border-width:0 0 1 0;"/>
 
@@ -50,11 +57,12 @@
                 <Label fx:id="currency"/>
 
                 <HBox spacing="5" alignment="CENTER_RIGHT">
-                    <Button fx:id="copyButton"   text="Kopeeri IBAN"/>
-                    <Button fx:id="detailsButton" text="Näita detaile"/>
+                    <Button styleClass="btn-secondary" fx:id="copyButton" text="Kopeeri IBAN"/>
+                    <Button styleClass="btn-secondary" fx:id="detailsButton" text="Näita detaile"/>
                 </HBox>
             </HBox>
-            <Button text="Salvesta toimingud faili" onAction="#salvestaToim"/>
+
+            <Button styleClass="btn-third" text="Salvesta toimingud faili" onAction="#salvestaToim"/>
         </VBox>
     </children>
 </AnchorPane>

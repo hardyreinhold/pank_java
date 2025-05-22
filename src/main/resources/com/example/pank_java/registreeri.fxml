@@ -24,8 +24,8 @@
         <Text  text="Korda parooli: "/>
         <PasswordField fx:id="pass2" promptText="Korda parooli"/>
         <HBox spacing="50.0" >
-            <Button text="Sign Up" onAction="#registreeri" prefWidth="100"/>
-            <Button text="Tagasi" onAction="#tagasi" prefWidth="100"/>
+            <Button styleClass="btn-primary" text="Sign Up" onAction="#registreeri" prefWidth="100"/>
+            <Button styleClass="btn-primary" text="Tagasi" onAction="#tagasi" prefWidth="100"/>
         </HBox>
     </VBox>
 </AnchorPane>
