@@ -2,6 +2,7 @@ package com.example.pank_java.controllers;
 
 import com.example.pank_java.Main;
 import com.example.pank_java.java.Konto;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -71,6 +72,7 @@ public class AccountController {
                     getClass().getResource("/com/example/pank_java/login.fxml")
             );
             Main.setTseen(root, 400, 500);
+            System.out.println("Logisin välja!");
         } catch (IOException e) {
             e.printStackTrace();
         }
