@@ -89,7 +89,4 @@ public class Pank {
         return kasutajaList;
     }
 
-    public String unustasinParooli() {
-        return "Palun võta ühendust toega.";
-    }
 }
